@@ -14,7 +14,7 @@ CSS="./css/style.css"
 # CSS="default"
 ENGINE="--engine engine.js"
 ARGS=""
-FILTER="/app/bin/filter4marp.py"
+FILTER="/src/filter4marp.py"
 WATCH_MODE=""
 CONVERT_MODE=""
 DEBUG=""
@@ -68,7 +68,12 @@ if [ -f ${DIST_DIR}/${CSS} ]; then
   CSS=${DIST_DIR}/${CSS}
 fi
 if [ ! -f ${FILTER} ]; then
-  FILTER=${SRC_DIR}/${FILTER}
+  if [ -f ${SRC_DIR}/${FILTER} ]; then
+    FILTER=${SRC_DIR}/${FILTER}
+  else
+    # default
+    FILTER="/app/bin/filter4marp.py"
+  fi
 fi
 
 # 3) debugモード
