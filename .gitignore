@@ -6,7 +6,6 @@ venv
 venv/
 *.log
 voices/*
-narration/*
 __slide.md
 __merged.md
 slide.html
