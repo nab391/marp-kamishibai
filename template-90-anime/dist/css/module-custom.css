@@ -1,0 +1,66 @@
+/***************************************************************************
+ * clock.css
+ ***************************************************************************/
+.nowtime {
+  position: fixed;
+  top: 20px;
+  left: initial;
+  right: 20px;
+  transform: translate(0%, 0);
+  border: solid 3px #222222;
+  border-radius: var(--border-radius);
+}
+/* h3時計 */
+.t {
+  position: fixed;
+  top: 62px;
+  right: 10px;
+  padding: 2pt 10px;
+  border: solid 2px #444444;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #444444;
+  text-align: center;
+  font-family: 'Roboto', monospace;
+  font-size: 1rem;
+  line-height: 1em; /* これがないと表示が崩れる場合多々。理由不明 */
+}
+
+/***************************************************************************
+ * glassplate.css
+ ***************************************************************************/
+.plate {
+  width: 50%;
+  height: 8.2em;
+}
+
+/***************************************************************************
+ * navi.css
+ ***************************************************************************/
+.toc-menu {
+  top: 0px;
+  right: 1.0em;
+}
+header .toc-menu {
+  position: relative;
+  top: -6.0px;
+  right: 0.0em;
+}
+.toc-ul {
+  position: absolute;
+  top: 30px;
+  /* left: -16em; */
+  left: unset;
+  right: 0em;
+  width: 12em;
+  padding: 0em;
+  font-size: 1.0rem;
+}
+header .toc-ul {
+  left: unset;
+  right: -0.7em;
+}
+.toc-li {
+    margin: 0.00em auto;
+}
+

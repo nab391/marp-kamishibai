@@ -1,0 +1,102 @@
+/* @theme custom */
+
+/* modules */
+@import "css/clock.css";
+@import "css/glassplate.css"; /* loading表示用 */
+@import "css/callout.css"; /* > [!NOTE] title 系対応 */
+@import "css/navi.css"; /* メニュー */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/stackoverflow-dark.css');
+
+/* theme */
+@import "css/theme_default.css"; /* フォント、カラーリング */
+@import "css/root.css"; /* 変数は極力ここに集約...予定 */
+@import "css/general.css";
+@import "css/layout.css"; /* 配置（位置、大きさ系） */
+@import "css/adjust.css"; /* 調整用部品 */
+
+/* 上記、読み込み順はいじらない */
+
+/* 以下、カスタマイズ／調整 */
+
+/***************************************************************************
+ * marpの変数が必要なもの
+ ***************************************************************************/
+/* -------------- ページ番号 -------------- */
+section::after {
+  content: attr(data-marpit-pagination)"/"attr(data-marpit-pagination-total);
+  font-size: var(--font-size-page);
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  margin: 4px 5px;
+  padding: 0;
+  /* padding: 4px 100px; */
+  background: var(--color-footer-bg);
+  /* color: var(--color-footer-fg); */
+}
+/***************************************************************************
+ * clock.css
+ ***************************************************************************/
+.nowtime {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  /* right: 0.5em; */
+  transform: translate(0%, 0);
+  border: solid 3px #222222;
+  border-radius: var(--border-radius);
+}
+/* h3時計 */
+.t {
+  position: fixed;
+  top: 62px;
+  right: 10px;
+  padding: 2pt 10px;
+  border: solid 2px #444444;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #444444;
+  text-align: center;
+  font-family: 'Roboto', monospace;
+  font-size: 1rem;
+  line-height: 1em; /* これがないと表示が崩れる場合多々。理由不明 */
+}
+
+/***************************************************************************
+ * glassplate.css
+ ***************************************************************************/
+.plate {
+  width: 50%;
+  height: 8.2em;
+}
+
+/***************************************************************************
+ * navi.css
+ ***************************************************************************/
+.toc-menu {
+  top: 0px;
+  right: 1.0em;
+}
+header .toc-menu {
+  position: relative;
+  top: -6.0px;
+  right: 0.0em;
+}
+.toc-ul {
+  position: absolute;
+  top: 30px;
+  /* left: -16em; */
+  left: unset;
+  right: 0em;
+  width: 12em;
+  padding: 0em;
+  font-size: 1.0rem;
+}
+header .toc-ul {
+  left: unset;
+  right: -0.7em;
+}
+.toc-li {
+    margin: 0.00em auto;
+}
+

@@ -1,0 +1,112 @@
+/*
+Copyright (c) 2020 mooncape
+https://mooncape.net/
+
+Copyright (c) 2018-present, iamkun
+Released under the MIT license
+https://github.com/iamkun/dayjs/blob/dev/LICENSE
+*/
+
+.nowtime{
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 180px;
+  padding : 12px 10px 5px 10px;
+  border-radius: 0px 0px 10px 10px;
+  /* ▼ ここで背景の色を変更 ▼ */
+  background: rgba(255,255,255,0.7);
+  /* ▲ ここで背景の色を変更 ▲ */
+
+  font-family: 'Roboto', monospace;
+  text-align: center;
+}
+#live{
+    border: solid 2px ;/* 枠線 */
+    border-radius: 5px;/* 角丸 */
+    line-height: 30px;/* 行間 */
+    letter-spacing: 5px;/* 字間 */
+    text-indent: 5px;
+    font-size: 24px;
+}
+
+#time{
+    line-height: 1em;/* 行間 */
+    letter-spacing: 3px;/* 字間 */
+    font-size: 60px;
+    /* ▼ ここで線の色を変更 ▼ */
+    /* border-bottom: solid 2px; */
+    /* ▲ ここで線の色を変更 ▲ */
+    text-align: center;
+}
+
+#date{
+    line-height: 1.5em;/* 行間 */
+    letter-spacing: 3px;
+	font-size: 30px;
+    text-align: center;
+}
+
+#colon{
+    vertical-align: 6%;
+    animation: blinkColon 1s steps(1, start) infinite;
+}
+@keyframes blinkColon {
+  0%   { visibility: visible; }
+  50%  { visibility: hidden; }
+  100% { visibility: visible; }
+}
+#t{
+    margin: 0 !important;
+}
+
+#clock {
+  /* height: 1.2em; */
+  width: 5em;
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  margin: 0.0em 0.0em;
+  padding: 0.0em 0.0em;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1.0rem;
+  line-height: 1.2;
+  z-index: 1;
+
+  /* 見た目 */
+  color: #000;
+  background: #E1EDFB;
+  border: solid 8px #8ABAEE;
+  border-radius: var(--border-radius);
+
+  /* font-family: var(--font-family-monospace); */
+  font-family: 'Roboto', monospace;
+}
+
+/* 以下、デフォがIDなのでclassにした */
+.live{
+  width: 90px;
+  margin: auto;
+  padding-bottom: 2px;
+}
+.time{
+  line-height: 1em;/* 行間 */
+  letter-spacing: 3px;/* 字間 */
+  font-size: 60px;
+  /* ▼ ここで線の色を変更 ▼ */
+  /* border-bottom: solid 2px; */
+  /* ▲ ここで線の色を変更 ▲ */
+  text-align: center;
+}
+.colon{
+  vertical-align: 6%;
+  animation: blinkColon 1s steps(1, start) infinite;
+  /* color: rgba(255,255,255,0.7); */
+  color: #222222;
+}
+
+

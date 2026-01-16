@@ -1,0 +1,108 @@
+/***************************************************************************
+ * 調整用クラス
+ ***************************************************************************/
+/* レイアウト */
+.margin-v-zero {margin-top:  0em !important;margin-bottom:  0em !important;}
+.margin-v-min  {margin-top:0.1em !important;margin-bottom:0.1em !important;}
+.margin-v-mid  {margin-top:0.4em !important;margin-bottom:0.4em !important;}
+.margin-v-wide {margin-top:1.0em !important;margin-bottom:1.0em !important;}
+.margin-h-one  {margin-left:  1em !important; margin-right:  1em !important;}
+.margin-h-half {margin-left:0.5em !important; margin-right:0.5em !important;}
+.margin-h-zero {margin-left:0.0em !important; margin-right:0.0em !important;}
+.padding-v-min {padding-top:0.1em !important; padding-bottom:0.1em !important; }
+.width-120 {width: 120% !important;}
+.width-90 {width: 90% !important;}
+.width-80 {width: 80% !important;}
+.width-70 {width: 70% !important;}
+.width-60 {width: 60% !important;}
+.height-90 {height: 90% !important;}
+.height-80 {height: 80% !important;}
+
+/*------------------
+ - 上下端に配置
+ ------------------*/
+.pos-upper {
+  width: 100%;
+  position: absolute;
+  top: 1.0em;
+}
+.pos-lower {
+  width: 100%;
+  position: absolute;
+  top: unset;
+  bottom: 1.0em;
+}
+.pos-middle {
+  /* position: absolute; */
+  position: fixed;
+  width: 100%;
+  /* height: 100%; */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+/* 余白 */
+.space-s { margin: 0.0em auto; border-width: 0px; }
+.space   { margin: 0.2em auto; border-width: 0px; }
+.space-l { margin: 0.5em auto; border-width: 0px; }
+
+/* 折り返し */
+.nowrap { white-space: pre; }
+.wrap { white-space: break-spaces; }
+/* .wrap-code pre  { overflow: visible; } */
+.wrap-code { white-space: break-spaces; }
+
+/* カラーリング */
+.bg-none {background: none !important;}
+.border-white {border-color: #fff !important;}
+.border-gray {border-color: #acacac !important;}
+.border-black {border-color: #222222 !important;}
+.border-none {border-width: 0 !important;}
+.border-mid { border: 3px solid #222222 !important; }
+
+/* 文字サイズ、字間、行間 */
+.size-xl  { font-size: 170% !important; }
+.size-l   { font-size: 120% !important; }
+.size-s   { font-size:  90% !important; }
+.size-xs  { font-size:  75% !important; }
+.size-xxs { font-size:  60% !important; }
+.size-min { font-size:  20% !important; }
+.text-spacing { letter-spacing: -0.04em; }
+.text-spacing2 { letter-spacing: -0.07em; }
+.line-nn { line-height: 0.7; }
+.line-n { line-height: 0.8; }
+.line-w { line-height: 1.4; }
+.line-ww { line-height: 1.7; }
+
+/* 文字配置 */
+.center { text-align: center; }
+
+/* 文字装飾 */
+.red    { color: red; }
+.green  { color: #229922; }
+.lightgreen  { color: var(--color-highlight-green); }
+.blue   { color: blue; }
+.yellow { color: var(--color-highlight-yellow); }
+.gray   { color: #acacac; }
+.white  { color: #ffffff !important; }
+.bold   { font-weight: bold; }
+
+/* 画像、数式問わず打ち消し線 */
+.strikeout {
+  position: relative;
+  display: inline-block;
+}
+.strikeout::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-main-fg);
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
