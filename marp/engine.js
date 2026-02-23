@@ -13,6 +13,23 @@ import mdItSup          from 'markdown-it-sup' // a^str^ → a<sup>str</sup>
 import mdItUnderline    from 'markdown-it-underline' // _str_ → <u>
 
 export default ({ marp }) => {
+    // 1. カスタムディレクティブ 'scene' を登録
+    // これを記述することで が解析対象になります
+    marp.customDirectives.local.scene = (value) => {
+        return { scene: value };
+    };
+
+    // 2. 解析された scene を <section> の data-scene 属性に付与するフック
+    marp.markdown.core.ruler.push('scene_to_section', (state) => {
+        state.tokens.forEach((token) => {
+            if (token.meta && token.meta.marpitDirectives && token.meta.marpitDirectives.scene) {
+                const sceneValue = token.meta.marpitDirectives.scene;
+                // marpit は 'marpit_slide_open' トークン等に属性を集約します
+                token.attrSet('data-scene', sceneValue);
+            }
+        });
+    });
+
     // const originalRender = marp.markdown.render;
     marp
     .use(mdItAnchor, {

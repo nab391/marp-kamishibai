@@ -74,6 +74,51 @@ def convert_callouts(text):
 
     return re.sub(pattern, replace_func, text, flags=re.MULTILINE)
 
+###### ***を<hr>\nに置き換える
+def replace_hr(text):
+    pattern = r'^\*\*\*\**$'
+    return re.sub(pattern, '<hr>\n', text, flags=re.MULTILINE)
+
+###### H2タイトルに番号付けする
+# "## marker#num#title" を "## marker{count}title" に置き換え
+def replace_h2_with_count(text):
+    pattern = r'^(##)\s+(.*)#num#(.*)$'
+    count_dict = {}
+
+    def replace_func(m):
+        prefix, marker, title = m.groups()
+        count_dict[title] = len(count_dict) + 1
+        return f'{prefix} {marker}{count_dict[title]}{title}'
+
+    return re.sub(pattern, replace_func, text, flags=re.MULTILINE)
+
+###### headerに番号付けする
+# before: <!-- header: 'marker#cond#title<post-str
+# after:  <!-- header: 'marker{count}title<post-str
+def replace_header_with_count(text):
+    #pattern = r"^<!-- header: '(.*?)(#.*#)(.*?)(<.*)*' -->$"
+    pattern = r"^<!-- (header:.*')(.*?)(#.*#)(.*?)(<[^']*)*('.*)*$"
+    #                  pre       marker cond title post     end
+    count_dict = {}
+
+    def replace_func(m):
+        tmp = m.groups()
+        pre, marker, cond, title, post, end = [t if t else "" for t in tmp]
+        #print(f"pre:{pre}, marker:{marker}, cond:{cond}, title:{title}, post:{post}, end:{end}")
+        cnt = len(count_dict)
+        text = marker + f"{cnt}" + title
+        if cond == "#num#":
+            if text not in count_dict:
+                cnt += 1
+                text = marker + f"{cnt}" + title
+                count_dict[text] = cnt
+        else:
+            text = [k for k, v in count_dict.items() if v == cnt][0]
+
+        #print(f"output:{pre}{text}{post}{end}")
+        return f"<!-- {pre}<div>{text}</div>{post}{end}"
+
+    return re.sub(pattern, replace_func, text, flags=re.MULTILINE)
 
 ###### メイン処理 ######
 def main():
@@ -94,6 +139,9 @@ def main():
     # フィルター通す
     text = replace_class(text)
     text = convert_callouts(text)
+    text = replace_hr(text)
+    text = replace_h2_with_count(text)
+    text = replace_header_with_count(text)
 
     # 出力
     if args.output:

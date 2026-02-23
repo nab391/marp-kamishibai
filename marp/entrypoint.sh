@@ -3,7 +3,7 @@
 # markdown結合用の変数
 SRC_DIR="/src" # 結合前のmd格納場所
 EXCLUDE="-exclude" # md結合時に除外するファイル名パターン
-MERGED="__merged.md"
+MERGED="__merged.tmp"
 
 # スライド生成用の変数
 DIST_DIR="/dist"
