@@ -1,29 +1,27 @@
 # デフォルト：1. src/*.mdを全て結合。2. HTML出力
-# - src/がmarkdown保存場所。*.mdが集約されている
-# - dist/が出力先。css/やimg/はこちらに配置しておく
-./slide-make.sh
+./_make-slide.sh
 
 # 結合対象から名前にhtmlonlyを含むファイルを除外する
-./slide-make.sh --exclude=htmlonly
+./_make-slide.sh --exclude=htmlonly
 
 # テーマ設定：テーマ名を指定
-./slide-make.sh --css=gaia
+./_make-slide.sh --css=gaia
 
 # テーマ設定：CSSファイルを指定（カスタムテーマ）
-./slide-make.sh --css=./css/style.css
+./_make-slide.sh --css=./css/style.css
 
 # PDF出力
-./slide-make.sh --exclude=htmlonly --pdf
+./_make-slide.sh --exclude=htmlonly --pdf
 
 # 組み合わせ例（HTML専用のページを除いてPDF出力。ログ出力あり）
-./slide-make.sh --exclude=htmlonly --pdf --debug
+./_make-slide.sh --exclude=htmlonly --pdf --debug
 
 # markdownの結合をしない。marpによる変換のみ実行する
-./slide-make.sh --convert
+./_make-slide.sh --convert
 
 # デバッグモード：1. 環境変数を表示。2. marpをデバッグモードで起動
-./slide-make.sh --debug
+./_make-slide.sh --debug
 
 # 組み合わせ例（HTML専用のページを除いてPDF出力。ログ出力あり）
-./slide-make.sh --exclude=htmlonly --pdf --debug
+./_make-slide.sh --exclude=htmlonly --pdf --debug
 
