@@ -1,0 +1,14 @@
+*10
+@voice zundamon """
+トラブルが発生しています。しばらくお待ちください。
+"""
+
+@js """
+console.log("announce-trouble pre");
+"""
+
+@jsPost """
+console.log("announce-trouble post");
+"""
+
+

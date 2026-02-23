@@ -1,0 +1,408 @@
+/*
+ * ページレイアウト
+ *
+ * 各セクションクラスの定義
+ * - loading: 開始前の待ち画面 (h1固定位置)
+ * - title: 表紙 (h1固定位置)
+ * - chapter: 章見出し (h2固定位置)
+ * - normal: 通常ページ (h3固定位置)
+ * - postend: エンディング語り後のエンドカード
+ *
+ */
+
+/***************************************************************************
+ * 共通設定
+ ***************************************************************************/
+/* -------------- 全ページ共通 -------------- */
+section {
+  display: flex;
+  flex-direction: column; /* 主軸の方向row, column */
+  justify-content: top; /* 主軸の揃えcenter, top */
+  align-items: center; /* 副軸の揃えcenter, top */
+  position: relative;
+  height: 100%; /* 親要素の高さに依存 */
+  padding: var(--spacing-zero);
+  color: var(--color-main-fg);
+  background-color: var(--color-main-bg);
+  text-align: center;
+  line-height: var(--line-height-base);
+  font-family: var(--font-family-base), var(--font-family-monospace);
+  cursor: url(/img/cursor.png), default;
+}
+
+/* -------------- 全見出し共通 -------------- */
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: normal;
+  text-transform: none;
+  text-shadow: none;
+  word-wrap: break-word;
+  text-align: center;
+  font-weight: bold;
+  line-height: var(--line-height-heading);
+}
+
+/***************************************************************************
+ * loading, title：表紙とその前の待ち画面
+ ***************************************************************************/
+/* ---------------- 文字色・背景色・フォントサイズ ---------------- */
+section.loading {
+  background: var(--loading-bg);
+  color: var(--loading-fg);
+  font-size: 1.0rem;
+}
+section.title {
+  background: var(--title-bg);
+  color: var(--title-fg);
+  font-size: 1.0rem;
+}
+/* ---------------- ヘッダー（見出しの直上に配置） ---------------- */
+section.loading .header,
+section.title .header {
+  position: absolute;
+  top: 34%;
+  margin: 0em auto;
+  width: 80%;
+  padding: 7px 0.7em;
+  border-bottom: solid 3px #fff;
+  text-align: center;
+  color: #ffffff;
+  font-size: 1.0rem;
+}
+/* ---------------- 見出し（タイトル） ---------------- */
+section.loading h1,
+section.title h1 {
+  position: absolute;
+  top: 41%;
+  width: 90%;
+  margin: 0.0em auto;
+  margin-block: 0em !important;
+  padding: 0.0em 0.0em;
+  border: var(--border-title);
+  border-width: var(--border-title-w);
+  font-size: var(--font-size-h1) !important;
+  text-shadow: none;
+}
+/* ---------------- 時計 ---------------- */
+section.loading .nowtime,
+section.title .nowtime {
+  width: 2.5em;
+  top: 10px;
+  left: 20px;
+  font-size: 1.2em;
+  padding: 0.0em 0.0em;
+  color: #ffffff;
+}
+section.loading .colon,
+section.title .colon {
+  color: #ffffff;
+}
+/* ---------------- 一般要素 ---------------- */
+section.loading p,
+section.title p {
+  margin: 0;
+  font-size: 1.2em;
+}
+/* ---------------- h1以下は固定位置（いつか改良） ---------------- */
+h1 + * { position: absolute; top: 64%; }
+h1 + * + * { position: absolute; top: 72%; }
+h1 + * + * + * { position: absolute; top: 85%; }
+
+/***************************************************************************
+ * chapter: 章見出し（1ページ使用）
+ ***************************************************************************/
+section.chapter {
+  background: var(--chapter-bg);
+  color: var(--chapter-fg);
+}
+section.chapter header {
+  visibility: hidden;
+}
+h2 {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  width: 90%;
+  height: 2em;
+  transform: translate(-50%, -50%);
+  /* margin: auto auto 0.5em; */
+  /* padding-bottom: 0.1em; */
+  padding: 4.4em 0.5em 4.0em 0em;
+  border: var(--border-chapter);
+  border-width: var(--border-chapter-w);
+  border-radius: 80px;
+  background: var(--chapter-title-bg);
+  color: var(--chapter-title-fg);
+  font-size: var(--font-size-h2);
+}
+/* h2以下は固定位置 */
+h2 + * { position: absolute; top: 59%; }
+
+/***************************************************************************
+ * postend：おしまいの後のエンドカード
+ ***************************************************************************/
+section.postend {
+  background: #000000;
+  color: #eeeeee;
+  font-size: 36pt;
+  font-family: "League Script", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/***************************************************************************
+ * 中央に文字だけのページ
+ ***************************************************************************/
+.naka {
+  /* justify-self: center;
+  align-self: center; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto !important;
+  padding: 0px;
+  width: 100%;
+  font-size: 2.0em;
+  line-height: 1.7;
+  text-align: center;
+}
+.naka p {
+  font-size: 1.0em !important;
+  text-align: center !important;
+}
+
+/***************************************************************************
+ * normal: 通常ページレイアウト
+ ***************************************************************************/
+/* -------------- h3：ページタイトル -------------- */
+h3 {
+  position: absolute;
+  width:   var(--title-width);
+  height:  var(--title-height);
+  top:     var(--title-start);
+  margin:  var(--title-margin);
+  padding: var(--title-padding);
+  border:       var(--title-border);
+  border-width: var(--title-border-w);
+  font-size:    var(--font-size-h3);
+  color:        var(--color-title-fg);
+  background:   var(--color-title-bg);
+}
+/* ページコンテンツ */
+h3 + * {
+  margin-top: var(--content-start) !important;
+  /* padding-top: max(60px, var(--original-padding, 0px)); */
+}
+
+/* -------------- ヘッダー＆フッター -------------- */
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center; /* 縦方向 */
+  position: absolute;
+  width:  var(--header-width);
+  height: var(--header-height);
+  top:    var(--header-start);
+  margin: var(--header-margin);
+  padding:var(--header-padding);
+  box-sizing: border-box; /* padding反映のため必要 */
+  border:       var(--header-border);
+  border-width: var(--header-border-w);
+  bottom: unset;
+  text-align: right;
+  font-size:  var(--font-size-header);
+  color:      var(--color-header-fg);
+  background: var(--color-header-bg);
+}
+header a,
+header a:visited {
+    color: #ddddff;
+}
+.header-item {
+  flex-grow: 1;
+  /* margin-right: 0.0em; */
+}
+.header-logo {
+  width: 1.5em;
+  height: 1.5em;
+  margin-right: 0.5em;
+}
+
+footer {
+  width: 100%;
+  height: 1.5em;
+  position: absolute;
+  top: unset;
+  bottom: 0;
+  background-color: var(--color-header-bg);
+  /* bottom: 0; */
+  text-align: center;
+  font-size: var(--font-size-footer);
+}
+
+/* -------------- 付箋（ヘッダーの右端） -------------- */
+.float {
+  /* width: 100%; */
+  height: 1.4em;
+  position: fixed;
+  top: 1.7em;
+  right: 1.0em;
+  padding: 0.2em 0.4em;
+  align-items: center;
+  text-align: center;
+  font-size: 0.8em;
+  z-index: 1;
+
+  /* info系 */
+  /* color: #086DDD; */
+  /* background: #E1EDFB; */
+  /* border-left: solid 8px #8ABAEE; */
+
+  /* success系 */
+  /* color: #08B94E; */
+  /* background: #E0F7F7; */
+  /* border-left: solid 8px #8ADDAA; */
+
+  /* warning系 */
+  color: #E69000;
+  background: #FFF0DF;
+  border-left: solid 8px #FFC800;
+}
+
+/***************************************************************************
+ * h4, h5, h6：ページ内見出し
+ ***************************************************************************/
+/* -------------- 標準見出し（中央揃え、全体に下線） -------------- */
+h4 {
+  justify-self: center; /* flex-directionの切り替えに対応 */
+  width: 100%;
+  margin:  0.8em auto 0.2em;
+  padding: 0.0em auto 0.1em;
+  border:       var(--title-border4);
+  border-width: var(--title-border4-w);
+  font-size:    var(--font-size-h4);
+}
+/* h4直後の空きスペース狭く */
+h4 + :is(p,code,h5,h6) {
+  margin-top: 0.2em !important;
+  padding-top: 0.2em !important;
+}
+
+/* -------------- 小見出し（中央揃え、文字のみ下線） -------------- */
+h5 {
+  display: inline-block;
+  justify-self: start; /* flex-directionの切り替えに対応 */
+  align-items: start; /* 副軸の揃えcenter, top */
+  /* width: 85%; */
+  margin: 0.5em auto 0.2em;
+  padding: 0.0em 1em 0.0em;
+  border:       var(--border-page-header);
+  border-width: var(--border-page-header-w);
+  text-align: left;
+  font-size: var(--font-size-h5);
+  /* text-decoration:underline; */
+}
+/* h5直後の空きスペース狭く */
+h5 + * {
+  margin-top: 0.1em !important;
+  padding-top: 0.1em !important;
+}
+
+/* -------------- 小見出し（左揃え、文字のみ下線） -------------- */
+h6 {
+  justify-self: left; /* flex-directionの切り替えに対応 */
+  /* width: 80%; */
+  margin-top:  0.5em;
+  margin-bottom:  0.0em;
+  padding: 0.0em auto 0.1em;
+  border:       var(--border-page-header);
+  border-width: var(--border-page-header-w);
+  font-size: var(--font-size-h6);
+}
+/* h6直後の空きスペース狭く */
+h6 + * {
+  margin-top: 0.1em !important;
+  padding-top: 0.1em !important;
+}
+
+/***************************************************************************
+ * 通常ページ内コンテンツ部分
+ ***************************************************************************/
+/* -------------- 横並び -------------- */
+.yoko {
+  width:  95%;
+  flex-grow: 1; /* 親要素に対する設定（最大長） */
+  display: flex; /* 子要素に対するflex設定 */
+  flex-direction: row; /* 主軸の方向row, column */
+  justify-content: center; /* 主軸の揃えcenter, top */
+  align-items: start; /* 副軸の揃えcenter, bottom */
+  /* gap: 1em; */
+}
+
+/* 入れ子のyokoは幅100％ */
+.yoko .yoko {
+  width: 100%;
+}
+
+/* -------------- 子要素（基本は任意タグ・クラス） -------------- */
+.yoko > * {
+  flex: 1; /* 幅を均等にする */
+  position: relative; /* 仕切り線の基準位置 */
+  height: 100%;
+  margin: 0em 0.5em;
+  padding-left: 1em;
+  /* gap: 1em; */
+}
+
+.yoko .yoko > * {
+  flex: 1; /* 幅を均等にする */
+  position: relative; /* 仕切り線の基準位置 */
+  height: 100%;
+  margin-left: 0em;
+  margin-right: 0em;
+  padding-left: auto;
+  padding-right: auto;
+  /* gap: 1em; */
+}
+
+/* 孫要素 */
+.yoko > * > :is(h4,h5,h6,p):first-child {
+  margin-top: 0em !important;
+}
+.yoko > * > p {
+  /* 縦マージンが重なってしまうのでpaddingで対応 */
+  margin: 0;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+.yoko > * > p:first-child {
+  /* margin-top: 0em !important; */
+  /* padding-top: 0em !important; */
+}
+
+.__ {
+  flex-grow: 1; /* 幅をめいっぱいとる */
+  white-space: nowrap; /* 折り返しなし */
+}
+
+/* -------------- 仕切り線 -------------- */
+/* 2番目以降の子要素に仕切り線を追加 */
+.yoko > *:nth-child(n+2)::before {
+  /* 左側に仕切り線 */
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 1%;
+  height: 97%;
+  border-left: 1px solid var(--border-color-main);
+}
+/* 入れ子のyokoは仕切り線なし */
+.yoko * .yoko *::before {
+  border: 0;
+}
+/* 例外対策 */
+.border-left {
+  border-left: 1px solid var(--border-color-main);
+}
+

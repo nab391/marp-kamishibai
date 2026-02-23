@@ -1,0 +1,8 @@
+{
+  "speaker": 3,
+  "speedScale": 1.15,
+  "intonationScale": 1.17,
+  "pauseLength": 0.40,
+  "pauseLengthScale": 1.00,
+  "outputStereo": false
+}

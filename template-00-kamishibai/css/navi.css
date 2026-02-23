@@ -1,0 +1,170 @@
+/* 通常の目次を非表示 */
+.table-of-contents {
+  display: none;
+}
+
+/* menu container */
+.toc-menu {
+  z-index: 1;
+  position: fixed;
+  margin: 0em;
+  padding: 0em;
+  flex-grow: 0;
+  width: 1.2rem;
+  height: 1.0rem;
+  font-size: 1.0rem;
+  text-align: center;
+  color: #aaa;
+  cursor: pointer;
+  /* 位置 */
+  top: 0px;
+  right: 1.0em;
+}
+.toc-menu:hover {
+  color: #F88;
+}
+header .toc-menu {
+  /* ヘッダー内は実体的に配置 */
+  position: relative;
+  top: 0px;
+  right: 0.0em;
+}
+
+/* ul */
+.toc-ul {
+  /* デフォルトで非表示 */
+  /* display: none !important; */
+
+  /* ふわっと表示 */
+  visibility: hidden; /* デフォルトでは非表示 */
+  opacity: 0; /* 不透明度初期値0 */
+  transition: all .2s; /* 表示の変化秒数 */
+
+  position: absolute;
+  top: 53px;
+  left: -16em;
+  width: 17em;
+  padding: 0em;
+}
+header .toc-ul {
+  left: unset;
+  right: -0.7em;
+}
+
+/* ホバーによる開閉動作 */
+.toc-menu:hover .toc-ul {
+  /* display: block !important; */
+  visibility: visible; /* ホバーしたら表示 */
+  opacity: 1; /* 不透明度1 */
+}
+.toc-li.h2:hover > ul {
+  display: block;
+  transform: scaleY(1); /* アニメーション表示：上から下 */
+}
+/* h2にホバーした際のh3表示 */
+.toc-li.h2:hover > ul .toc-li.h3 {
+  display: block;
+}
+
+/* li */
+.toc-li {
+  position: relative;
+  height: 1.2em;
+  padding: 0.1em 0.5em;
+  border: 1px solid #d3d3ff;
+  list-style-type: none;
+  background-color: #EFF6FF;
+  font-size:  90%;
+}
+
+.toc-li:hover,
+.toc-li.h2:hover,
+.toc-li.h3:hover {
+  background-color: #88BBFF;
+  color: #DADDFF;
+}
+/* サブメニュー(h3)用スタイル */
+.toc-li.h2 > ul {
+  display: none;
+  transform: scaleY(0); /*デフォルトでは非表示の状態にしておく*/
+  transform-origin: center top; /*変形を適応する基準をtopとする*/
+  transition: all .2s; /*表示の変化を0.2秒に指定*/
+  position: absolute;
+  /* top: 100%; */
+  top: 1.2em;
+  right: 3.0em;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  z-index: 1000;
+}
+/* h3レベルのli */
+.toc-li.h3 {
+  /* デフォルトで非表示 */
+  display: none;
+  padding: 0.15em 0.5em;
+  border: 1px solid #9999DD;
+  background-color: #D8E8FF;
+  font-size: 0.95em;
+}
+/* a */
+.toc-li a {
+  display: flex;
+  align-items: end;
+  /* width: 100%; */
+  height: 100%;
+  text-decoration: none;
+  color: #1b4089 !important;
+}
+.toc-li.h3 a {
+  color: #000055 !important;
+}
+
+
+/* ふわっと表示 */
+dummy.toc-ul {
+  /* ふわっと表示 */
+  /* display: none !important; */
+  visibility: hidden; /* デフォルトでは非表示 */
+  opacity: 0; /* 不透明度初期値0 */
+  transition: all .2s; /* 表示の変化秒数 */
+}
+dummy.toc-menu:hover .toc-ul {
+  /* display: block !important; */
+  visibility: visible; /* ホバーしたら表示 */
+  opacity: 1; /* 不透明度1 */
+}
+dummy.toc-li.h2:hover > ul {
+  /* display: block; */
+  visibility: visible; /* ホバーしたら表示 */
+  opacity: 1; /* 不透明度1 */
+}
+dummy.toc-li.h2 > ul {
+  /* ふわっと表示 */
+  /* display: none; */
+  visibility: hidden; /* デフォルトでは非表示 */
+  opacity: 0; /* 不透明度初期値0 */
+  transition: all .2s; /* 表示の変化秒数 */
+}
+dummy.toc-li.h3 {
+  /* display: none; */
+}
+
+/* 上から下にアコーディオン開閉 */
+dummy.toc-li.h2 > ul {
+  transform: scaleY(0); /*デフォルトでは非表示の状態にしておく*/
+  transform-origin: center top; /*変形を適応する基準をtopとする*/
+  transition: all .2s; /*表示の変化を0.2秒に指定*/
+}
+dummy.toc-li.h2:hover > ul {
+  transform: scaleY(1); /* アニメーション表示：上から下 */
+}
+
+/* 不要？ */
+.toc-li.h2 {
+  /* h2レベルのli */
+  /* background-color: #E6F2FF; */
+}
+
+
+/* vim:set ts=2 sts=2 sw=2 tw=0: */

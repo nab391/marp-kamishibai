@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=BIZ+UDGothic&family=BIZ+UDPGothic:wght@400;700&display=swap");
+/* nerd font */
+@import url('https://cdn.jsdelivr.net/gh/mshaugh/nerdfont-webfonts@v3.3.0/build/firacode-nerd-font.css'); /* main */
+@import url("https://www.nerdfonts.com/assets/css/webfont.css"); /* <i>形式 */
+/* clock */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=League+Script&display=swap");
+/* @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"); */
+
+:root {
+  /* フォント */
+  --font-family-base: "BIZ UDPGothic", sans-serif;
+  --font-family-monospace: "FiraCode Nerd Font", "BIZ UDGothic", monospace;
+  --font-family-code: "FiraCode Nerd Font", "BIZ UDGothic", monospace;
+  --font-size-base: 24px;
+  --font-size-title: 1.3em;
+  --font-size-page: 1.0em;
+  --font-size-h1: 2.9em;
+  --font-size-h2: 2.3em;
+  --font-size-h3: 1.9em;
+  --font-size-h4: 1.3em;
+  --font-size-h5: 1.2em;
+  --font-size-h6: 1.0em;
+  --font-size-pre: 0.9em;
+  /* フォント：通常ページ */
+  --header-font-size: 1em;
+  --footer-font-size: 80%;
+  /* フォント：行間 */
+  --line-height-base: 1.3em;
+  --line-height-heading: 1.2em;
+
+
+  /* カラー設定：一般 */
+  --color-primary: #007bff;
+  --color-secondary: #6c757d;
+  --color-danger: #dc3545;
+  --color-warning: #ffc107;
+  --color-info: #17a2b8;
+  --color-light: #f8f9fa;
+  --color-dark: #1a1a1a;
+  --color-highlight-green: lightgreen;
+  --color-highlight-yellow: yellow;
+  --color-highlight-red: #ff6540;
+  --color-highlight-blue: #b8c9ff;
+  --color-highlight-pink: #ffcded;
+
+  /* カラー設定：スライド用 */
+  --color-main-bg: #fff;
+  --color-main-fg: #222222;
+  --color-table-border: #1a1a1a;
+  --color-code-bg: #1a1a1a;
+  --color-code-fg: #f6f6f6;
+
+  /* カラー設定：プレ表紙 */
+  /* --loading-bg: url(./img/mc-stockBG_classic04_WH.png); */
+  /* --loading-fg: #002b5b; */
+  --loading-bg: linear-gradient(to right top, #1f2f60, #3f629f);
+  --loading-fg: #ffffff;
+
+  /* カラー設定：表紙 */
+  /* --title-bg: linear-gradient(to right top, #469b1f, #98d043); */
+  --title-bg: linear-gradient(to right top, #1f2f60, #3f629f);
+  /* --title-bg: linear-gradient(to right top, #ff9158, #ffbb1e); */
+  /* --title-bg: #ffffff; */
+  --title-fg: #ffffff;
+  /* --title-fg: #111111; */
+  --border-title: 0px solid var(--border-color-main);
+  /* --border-title-w: 0px 0px 6px 0px; */
+  /* --border-title: 0px solid #ffffff; */
+  --border-title-w: 0px 0px 0px 0px;
+
+  /* カラー設定：章見出し */
+  --chapter-bg: linear-gradient(to right top, #1f2f60, #3f629f);
+  --chapter-fg: #ffffff;
+  /* --chapter-bg: #ffffff; */
+  /* --chapter-fg: #111111; */
+  --chapter-title-bg: #ffffff;
+  --chapter-title-fg: #111111;
+  /* border: 6px solid var(--border-color-main); */
+  /* border-width: 0px 0px 6px 0px; */
+  --border-chapter: 0px solid var(--border-color-main);
+  --border-chapter-w: 0px 0px 0px 0px;
+
+  /* カラー設定：通常ページ */
+  /* #8889EE #3672a4 #3f629f #2f4f82 #2f4f88,#223670,#325280,#3F627F */
+  /* #334c33,#333333,#4c4333,#2a5c43,#266b16,#b1261b */
+  /* #4B2D1C,#691c2a,#592720 */
+  /* 高級路線： #2f4072, #1f2f60, #401f18, #1f4f18 */
+  --color-header-bg:  #2f4072;
+  --color-header-fg:  #f0f0f0;
+  --color-title-bg:   var(--color-main-bg);
+  --color-title-fg:   var(--color-main-fg);
+  /* --color-footer-bg:  #2f4072; */
+  /* --color-footer-fg:  #f0f0f0; */
+  --color-footer-bg:  none;
+  --color-footer-fg:  var(--color-main-fg);
+
+  /* ヘッダー飾り */
+  --border-color-main: #111;
+
+  /* 枠飾り */
+  --box-border-color: #1a1a1a;
+  --box-info-fg: #1f2f60;
+  --box-info-bg: #e1f5fe;
+  --box-info-border-color: #2196f3; /* #67b8e3,#0288d1 */
+  --box-success-fg: #08794E;
+  --box-success-bg: #E0F7F7;
+  --box-success-border-color: #6abd6a;
+  --box-warn-fg: #553333;
+  --box-warn-bg: #fdf5e6;
+  --box-warn-border-color: #F3983B;
+}
+

@@ -1,0 +1,65 @@
+:root {
+  /* レイアウトサイズ */
+  /* --layout-width: 1920px; */
+  /* --layout-height: 1080px; */
+  font-size: var(--font-size-base);
+
+/***************************************************************************
+ * 通常ページ用レイアウト
+ ***************************************************************************/
+  /* y方向 */
+  --header-start:    0px;
+  --header-height:  36px;
+  --header-margin:   0px;
+  --header-padding:  0px 1.0em;
+  --header-border:   0px solid var(--border-color-main);
+  --header-border-w: 0px 0px 0px 0px;
+  --header-end:     36px;
+
+  --title-start:    36px; /* ページタイトル */
+  --title-height:   48px;
+  --title-margin:    0px;
+  --title-padding:   8px;
+  --title-border:    0px solid var(--border-color-main);
+  --title-border-w:  0px 0px 2px 0px;
+  --title-end:     104px;
+
+  --content-start: 110px; /* 本文開始位置 */
+  --title-border4:   0px solid var(--border-color-main);
+  --title-border4-w: 0px 0px 2px 0px;
+  --title-border5:   0px solid var(--border-color-main);
+  --title-border5-w: 0px 0px 2px 0px;
+
+  --footer-start:    0px; /* footerは未設定 */
+  --footer-height:   0px;
+  --footer-margin:   0px;
+  --footer-padding:  0px;
+  --footer-end:      0px;
+
+  /* x方向 */
+  --header-width: 100%;
+  --title-width:  100%;
+
+  /* レイアウトスペース（整理中） */
+  --spacing-zero: 0px;
+  --spacing-xs: 2px;
+  --spacing-sm: 5px;
+  --spacing-md: 10px;
+  --spacing-lg: 20px;
+  --spacing-xl: 40px;
+  --border-radius: 10px;
+  --border-width-min: 1px;
+  --border-width-thin: 2px;
+  --border-width-medium: 3px;
+  --border-width-thick: 5px;
+
+/***************************************************************************
+ * 他
+ ***************************************************************************/
+  /* 飾り枠 */
+  --box-width: 90%;
+  --box-border-width: 5px;
+  --box-border-radius: 30px;
+
+}
+
