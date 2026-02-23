@@ -1,6 +1,7 @@
 cd "$(dirname "$0")"
 docker run --rm \
-  -v "$PWD/src:/src" \
-  -v "$PWD/dist:/dist" \
+  -v "$PWD:/src" \
+  -v "$PWD:/dist" \
   marp-docker "$@"
+
 
