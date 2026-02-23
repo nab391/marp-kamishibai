@@ -1,0 +1,10 @@
+{
+  "name": "narration-server",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
+
